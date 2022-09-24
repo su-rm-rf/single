@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import Default from '../views/Default'
+import OrderList from '../views/OrderList'
 
 const routes = [
   {
-    path: '', component: Default,
+    path: '/admin/order/list', component: OrderList,
   }
 ]
 

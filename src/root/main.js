@@ -4,10 +4,10 @@ import router from './router'
 import './css/index.scss'
 import RootApp from './App'
 
-const goto = url => {
+window.spagoto = url => {
   singleSpaNavigate(url)
 }
 
-createApp(RootApp, {goto})
+createApp(RootApp, {spagoto})
 .use(router)
 .mount('#root')

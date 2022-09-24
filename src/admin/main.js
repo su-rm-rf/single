@@ -1,12 +1,17 @@
 import { h, createApp } from 'vue'
 import singleSpaVue from 'single-spa-vue'
 
+import router from './router'
 import App from './App'
 
 const vueLifecycles = singleSpaVue({
   createApp,
   appOptions: {
-    render: props => h(App, { props })
+    el: '#app',
+    render: props => h(App, { props }),
+  },
+  handleInstance: app => {
+    app.use(router)
   }
 })
 

@@ -3,9 +3,9 @@ import { registerApplication, start } from 'single-spa'
 import './main'
 
 registerApplication(
-  'shop',
-  () => import('../shop/main.js'),
-  (location) => location.pathname.startsWith('/shop'),
+  'flight',
+  () => import('../flight/main.js'),
+  (location) => location.pathname.startsWith('/flight'),
   { some: '2C' }
 )
 
@@ -19,10 +19,10 @@ registerApplication({
 })
 
 registerApplication(
-  'goods',
-  () => import('../goods/main.js'),
-  (location) => location.pathname.startsWith('/goods'),
-  { some: 'goods' }
+  'manage',
+  () => import('../manage/main.js'),
+  (location) => location.pathname.startsWith('/manage'),
+  { some: 'manage' }
 )
 
 start()

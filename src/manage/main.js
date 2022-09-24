@@ -16,5 +16,5 @@ export const mount = reactLifecycles.mount
 export const unmount = reactLifecycles.unmount
 
 function domElementGetter() {
-  return document.querySelector('#goods')
+  return document.querySelector('#app')
 }

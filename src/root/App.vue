@@ -1,17 +1,12 @@
 <script setup>
-  import { useRouter } from 'vue-router'
-
-  const props = defineProps(['goto'])
-  const { goto } = props
-
-  const router = useRouter()
-  router.push('/shop')
+  const props = defineProps(['spagoto'])
+  const { spagoto } = props
 </script>
 
 <template>
+  <!-- <router-view /> -->
   <nav>
-    <a @click="goto('/shop')">主页</a>
-    <router-link to="/cart">购物车</router-link>
-    <a @click="goto('/admin')">我的</a>
+    <a @click="spagoto('/flight')">主页</a>
+    <a @click="spagoto('/admin')">我的</a>
   </nav>
 </template>

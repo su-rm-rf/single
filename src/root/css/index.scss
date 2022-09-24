@@ -1,15 +1,13 @@
 * { margin: 0; padding: 0; }
 a { text-decoration: none; color: inherit; }
-body {
-  position: relative;
-}
 #root {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 36ppx;
+  position: relative;
   nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 36ppx;
     display: flex;
     line-height: 36px;
     text-align: center;
