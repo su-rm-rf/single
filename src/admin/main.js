@@ -7,7 +7,7 @@ import App from './App'
 const vueLifecycles = singleSpaVue({
   createApp,
   appOptions: {
-    el: '#app',
+    el: '#admin',
     render: props => h(App, { props }),
   },
   handleInstance: app => {

@@ -6,6 +6,7 @@ registerApplication(
   'flight',
   () => import('../flight/main.js'),
   (location) => location.pathname.startsWith('/flight'),
+  // (location) => location.pathname === '/' || location.pathname.startsWith('/flight'),
   { some: '2C' }
 )
 

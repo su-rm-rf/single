@@ -2,6 +2,7 @@ const path = require('path')
 
 const { VueLoaderPlugin } = require('vue-loader')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = env => {
   return {
@@ -62,6 +63,7 @@ module.exports = env => {
       extensions: ['.vue', '.jsx', '.js', '.json']
     },
     plugins: [
+      new CleanWebpackPlugin(),
       new VueLoaderPlugin(),
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, '../public/index.html'),

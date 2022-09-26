@@ -1,0 +1,15 @@
+.admin {
+  margin: 20px ;
+  .navHeader {
+    display: flex;
+    flex-direction: column;
+    a {
+      line-height: 36px;
+      border-bottom: 1px dashed #999;
+    }
+  }
+}
+
+@import './user.scss';
+@import './order.scss';
+@import './airline.scss';

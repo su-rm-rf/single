@@ -13,8 +13,10 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.27.2",
+    "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router": "^6.4.1",
     "react-router-dom": "^6.4.1",
     "single-spa": "^5.9.4",
     "single-spa-layout": "^2.1.0",
@@ -28,6 +30,7 @@
     "@babel/preset-env": "^7.19.1",
     "@babel/preset-react": "^7.18.6",
     "babel-loader": "^8.2.5",
+    "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.1",
     "html-webpack-plugin": "^5.5.0",
     "postcss": "^8.4.16",

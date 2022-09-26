@@ -8,7 +8,7 @@ module.exports = env => {
       port: 6661,
       historyApiFallback: true,
       proxy: {
-        '/server': {
+        '/backend': {
           target: 'http://localhost:6851'
         }
       }
