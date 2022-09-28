@@ -1,15 +1,45 @@
 <script setup>
-  import { ref } from 'vue'
+  import { ref, reactive } from 'vue'
   import { useRouter } from 'vue-router'
 
+  import http from '../util/http'
+  
   const router = useRouter()
-  let flightAddFlag = ref(false)
+
+  let airlines = ref([])
+  let airlineAddFlag = ref(false)
+  const airlineModel = reactive({
+    name: '',
+    code: ''
+  })
+
+  const AirlineAddToggle = () => {
+    airlineAddFlag.value = !airlineAddFlag.value
+  }
+  const FlightAdd = (aid) => {
+    router.push(`/admin/flight/add?aid=${ aid }`)
+  }
+
+  const getAirlines = () => {
+    http.get('/airline/list').then(res => {
+      airlines.value = res.data
+    })
+  }
+
+  getAirlines()
 
   const AirlineAdd = () => {
-    router.push('/admin/airline/add')
+    if (!airlineModel.name || !airlineModel.code) {
+      alert('不能为空')
+    } else {
+      http.post('/airline/add', airlineModel).then(res => {
+        airlineAddFlag.value = !airlineAddFlag.value
+      })
+    }
   }
-  const FlightAdd = () => {
-    flightAddFlag.value = !flightAddFlag.value
+
+  const seatManage = (fid) => {
+    router.push(`/admin/flight/seats?fid=${ fid }`)
   }
 </script>
 
@@ -17,91 +47,71 @@
   <div class="airlinelist">
     <header>
       <h3>航司列表</h3>
-      <input type="button" value="新增航司" @click="AirlineAdd" />
+      <input type="button" value="新增航司" @click="AirlineAddToggle" />
     </header>
-    <dl class="airline">
+    <dl class="airline" v-for="(airline, idx) in airlines" :key="idx">
       <dt>
-        <span>航司名称</span>
-        <input type="button" value="新增航班" @click="FlightAdd" />
+        <span>{{ airline.name }}</span>
+        <input type="button" value="新增航班" @click="FlightAdd(airline.aid)" />
       </dt>
-      <!-- 航班列表，展开收缩 -->
-      <dd class="flight">
-        <p>
-          <label>出发地：</label><span>北京</span>
-          <label>目的地：</label><span>上海</span>
+      <dd class="flight" v-for="(flight, idx2) in airline.flights" :key="idx2">
+        <p class="row">
+          <p>
+            <label>编 号：</label>
+            <span>{{ flight.code }}</span>
+          </p>
+          <p class="action">
+            <input type="button" value="舱位管理" @click="seatManage(flight.fid)" />
+          </p>
         </p>
-        <p>
-          <label>出发日期</label>
-          <span>2022-1018</span>
+        <p class="row">
+          <p>
+            <label>出发地：</label>
+            <span>{{ flight.depatureName }}</span>
+          </p>
+          <p>
+            <label>目的地：</label>
+            <span>{{ flight.destinationName }}</span>
+          </p>
         </p>
-        <p>
-          <label>出发时间</label>
-          <span>07:35</span>
-          <label>抵达时间</label>
-          <span>16:10</span>
+        <p class="row">
+          <label>出发日期：</label>
+          <span>{{ flight.leaveDate }}</span>
         </p>
-      </dd>
-      <dd class="flight">
-        <p>
-          <label>出发地：</label><span>深圳</span>
-          <label>目的地：</label><span>北京</span>
-        </p>
-        <p>
-          <label>出发日期</label>
-          <span>2022-1019</span>
-        </p>
-        <p>
-          <label>出发时间</label>
-          <span>09:15</span>
-          <label>抵达时间</label>
-          <span>18:30</span>
+        <p class="row">
+          <p>
+            <label>出发时间：</label>
+            <span>{{ flight.leaveTime }}</span>
+          </p>
+          <p>
+            <label>抵达时间：</label>
+            <span>{{ flight.arriveTime }}</span>
+          </p>
         </p>
       </dd>
     </dl>
-    <dl class="airline">
-      <dt>
-        <span>航司名称</span>
-        <input type="button" value="新增航班" @click="FlightAdd" />
-      </dt>
-      <!-- 航班列表，展开收缩 -->
-      <dd class="flight">
-        <p>
-          <label>出发地：</label><span>上海</span>
-          <label>目的地：</label><span>成都</span>
-        </p>
-        <p>
-          <label>出发日期</label>
-          <span>2022-1016</span>
-        </p>
-        <p>
-          <label>出发时间</label>
-          <span>09:25</span>
-          <label>抵达时间</label>
-          <span>20:30</span>
-        </p>
 
-      </dd>
-      <dd class="flight">
+    <div v-if="airlineAddFlag" class="mask"></div>
+    <div v-if="airlineAddFlag" class="popup-wrap">
+      <header>
+        <h4>新增航司</h4>
+        <i @click="AirlineAddToggle">X</i>
+      </header>
+      <div class="popup-body">
         <p>
-          <label>出发地：</label><span>北京</span>
-          <label>目的地：</label><span>深圳</span>
+          <label>名 称：</label>
+          <input v-model="airlineModel.name" />
         </p>
         <p>
-          <label>出发日期</label>
-          <span>2022-1018</span>
+          <label>编 号：</label>
+          <input v-model="airlineModel.code" />
         </p>
-        <p>
-          <label>出发时间</label>
-          <span>11:40</span>
-          <label>抵达时间</label>
-          <span>18:20</span>
+        <p class="submit">
+          <input type="button" value="添 加" @click="AirlineAdd" />
         </p>
-      </dd>
-    </dl>
+      </div>
+    </div>
   </div>
 
-  <div v-if="flightAddFlag">
-    新增航班
-  </div>
 
 </template>

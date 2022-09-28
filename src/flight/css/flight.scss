@@ -1,0 +1,43 @@
+.flightlist {
+  margin: 20px 20px 60px;
+  position: relative;
+  > header {
+    margin: 10px 0;
+    h3 {
+      line-height: 40px;
+    }
+  }
+  .flight-list {
+    padding: 10px;
+    border: 1px solid #999;
+    border-bottom: none;
+    .flight {
+      display: flex;
+      .col {
+        flex: 1;
+        line-height: 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        input {
+          height: 32px;
+        }
+      }
+    }
+    &:last-child {
+      border-bottom: 1px solid #999;
+    }
+    .seat-list {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px dashed #999;
+      li {
+        margin: 5px 0;
+        display: flex;
+        label, span, input {
+          flex: 1;
+        }
+      }
+    }
+  }
+}

@@ -1,10 +1,17 @@
-.home {
-  width: 80%;
-  margin: 100px auto;
+.order {
+  margin: 20px 20px 60px;
+  .seatinfo {
+    padding: 10px 0;
+    border-bottom: 1px dashed #999;
+    p {
+      margin: 5px 0;
+    }
+  }
+  .passenger {
+    padding-top: 10px;
+  }
   h3 {
-    line-height: 60px;
-    text-align: center;
-    font-size: 24px;
+    line-height: 40px;
   }
   p {
     line-height: 30px;
@@ -13,7 +20,7 @@
     label {
       flex: 1;
     }
-    input, select {
+    span, input, select {
       flex: 3;
     }
     &.submit {

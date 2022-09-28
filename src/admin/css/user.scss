@@ -6,3 +6,31 @@
     line-height: 30px;
   }
 }
+
+.signin {
+  width: 90%;
+  margin: 100px auto;
+  h3 {
+    line-height: 60px;
+    text-align: center;
+    font-size: 24px;
+  }
+  p {
+    line-height: 30px;
+    display: flex;
+    margin: 10px 0;
+    label {
+      flex: 1;
+    }
+    input, select {
+      flex: 3;
+    }
+    &.submit {
+      margin-top: 20px;
+      input {
+        width: 100%;
+        height: 40px;
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+.orderList2 {
+  margin: 20px 20px 60px;
+  position: relative;
+  > header {
+    margin: 10px 0;
+    h3 {
+      line-height: 40px;
+    }
+    input {
+      width: 100px;
+      height: 40px;
+    }
+  }
+  .order2 {
+    padding: 10px;
+    border: 1px solid #999;
+    border-bottom: none;
+    display: flex;
+    flex-direction: column;
+    .row {
+      line-height: 24px;
+      display: flex;
+      p {
+        flex: 1;
+        &.action {
+          text-align: right;
+          span:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    &:last-child {
+      border-bottom: 1px solid #999;
+    }
+  }
+}

@@ -1,13 +1,12 @@
 <script setup>
-  const props = defineProps(['user'])
-  const user = props.user
+  defineProps(['user'])
 </script>
 
 <template>
   <ul class="user">
     <li>
       <label>用户名：</label>
-      <span>{{ user.userName }}</span>
+      <span>{{ user.name }}</span>
     </li>
     <li>
       <label>身份证号：</label>

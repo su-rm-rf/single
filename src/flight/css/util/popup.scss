@@ -1,0 +1,52 @@
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #333;
+  opacity: 0.5;
+  z-index: 10;
+}
+
+.popup-wrap {
+  position: fixed;
+  top: 20%;
+  left: calc(10% - 10px);
+  width: 80%;
+  height: 60%;
+  background: #fff;
+  border: 1px solid #999;
+  z-index: 11;
+  padding: 10px;
+  header {
+    display: flex;
+    justify-content: space-between;
+    line-height: 36px;
+    border-bottom: 1px dashed #999;
+    i:hover {
+      cursor: pointer;
+    }
+  }
+  .popup-body {
+    margin: 30px 10px;
+    p {
+      line-height: 30px;
+      display: flex;
+      margin: 10px 0;
+      label {
+        flex: 1;
+      }
+      input, select {
+        flex: 3;
+      }
+      &.submit {
+        margin-top: 20px;
+        input {
+          width: 100%;
+          height: 40px;
+        }
+      }
+    }
+  }
+}

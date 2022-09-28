@@ -1,3 +1,5 @@
+@import './util//popup.scss';
+
 .admin {
   margin: 20px ;
   .navHeader {
@@ -13,3 +15,6 @@
 @import './user.scss';
 @import './order.scss';
 @import './airline.scss';
+@import './flight.scss';
+@import './seat.scss';
+@import './order.scss';
