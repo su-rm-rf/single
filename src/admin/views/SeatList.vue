@@ -10,7 +10,6 @@
 
   const fid = routes.query.fid
   let seatModel = reactive({
-    sid: '',
     type: 'F',
     price: '',
     flight: fid
@@ -35,6 +34,8 @@
       http.post('/seat/add', seatModel).then(res => {
         SeatAddToggle()
         getSeatList()
+        seatModel.type = 'F'
+        seatModel.price = ''
       })
     }
   }

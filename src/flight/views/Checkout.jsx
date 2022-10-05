@@ -111,7 +111,7 @@ export default function Checkout() {
           <div className="popup-wrap">
             <header>
               <h4>订单支付</h4>
-              <i onClick={ orderPayToggle }>X</i>
+              {/* <i onClick={ orderPayToggle }>X</i> */}
             </header>
             <div className="popup-body">
               <p>订单ID：{ order._id }</p>

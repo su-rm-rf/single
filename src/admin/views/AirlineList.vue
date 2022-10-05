@@ -33,7 +33,8 @@
       alert('不能为空')
     } else {
       http.post('/airline/add', airlineModel).then(res => {
-        airlineAddFlag.value = !airlineAddFlag.value
+        airlineAddFlag.value = false
+        getAirlines()
       })
     }
   }
