@@ -27,6 +27,7 @@ export default function SeatList(props) {
       isSignin: !!localStorage.token,
       signinPop: !state.signinPop,
     }))
+    props.toggleInOrUp('in')
   }
   
   const handleSignin = async (userModel) => {
