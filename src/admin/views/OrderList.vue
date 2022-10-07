@@ -62,12 +62,14 @@
           <span>{{ order.flight.flightName }}</span>
         </p>
         <p class="row">
-          <label>出发地：</label>
-          <span>{{ order.flight.depatureName }}</span>
-        </p>
-        <p class="row">
-          <label>目的地：</label>
-          <span>{{ order.flight.destinationName }}</span>
+          <p>
+            <label>出发地：</label>
+            <span>{{ order.flight.depatureName }}</span>
+          </p>
+          <p>
+            <label>目的地：</label>
+            <span>{{ order.flight.destinationName }}</span>
+          </p>
         </p>
         <p class="row">
           <label>出发日期：</label>
@@ -84,12 +86,14 @@
           </p>
         </p>
         <p class="row">
-          <label>舱 位：</label>
-          <span>{{ order.seat.name }}</span>
-        </p>
-        <p class="row">
-          <label>价 格：</label>
-          <span>¥{{ order.price }}</span>
+          <p>
+            <label>舱 位：</label>
+            <span>{{ order.seat.name }}</span>
+          </p>
+          <p>
+            <label>价 格：</label>
+            <span>¥{{ order.price }}</span>
+          </p>
         </p>
         <p class="row">
           <label>乘机人姓名：</label>

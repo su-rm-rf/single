@@ -12,7 +12,7 @@
     repassword: '',
     cardID: '',
     telephone: '',
-    email: ''
+    email: '',
   })
 
   const handleSignup = () => {

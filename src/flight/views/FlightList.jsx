@@ -11,6 +11,7 @@ export default function FlightList(props) {
     isSignin: !!localStorage.token,
     flights: [],
     selectedSeat: '',
+    inOrUp: '',
     seats: []
   })
 
@@ -26,6 +27,7 @@ export default function FlightList(props) {
       setState(Object.assign({}, state, {
         selectedSeat: code,
         seats: res.data,
+        inOrUp: 'in',
       }))
     })
   }
@@ -45,7 +47,6 @@ export default function FlightList(props) {
 
   const handleSignin = async (userModel) => {
     let canSubmit = true
-    // Object.keys(userModel).map(item => !userModel[item] && (canSubmit = false))
     Object.values(userModel).map(item => !item && (canSubmit = false))
     if (!canSubmit) {
       alert('不能为空')
@@ -54,7 +55,8 @@ export default function FlightList(props) {
         const isSignin = !!res.data.token
         if (isSignin) {
           setState(Object.assign({}, state, {
-            isSignin: isSignin
+            isSignin: isSignin,
+            inOrUp: 'in',
           }))
           localStorage.token = res.data.token
           localStorage.user = JSON.stringify(res.data.user)
@@ -63,6 +65,37 @@ export default function FlightList(props) {
         }
       })
     }
+  }
+
+  const handleSignup = async (userModel) => {
+    let canSubmit = true
+    Object.values(userModel).map(item => !item && (canSubmit = false))
+    if (!canSubmit) {
+      alert('不能为空')
+      setState(Object.assign({}, state, {
+        inOrUp: 'in'
+      }))
+    } else {
+      await http.post(`/user/signup`, userModel).then(res => {
+        const isSignin = !!res.data.token
+        if (isSignin) {
+          setState(Object.assign({}, state, {
+            isSignin: isSignin,
+            inOrUp: 'in',
+          }))
+          localStorage.token = res.data.token
+          localStorage.user = JSON.stringify(res.data.user)
+        } else {
+          alert('注册失败！')
+        }
+      })
+    }
+  }
+  
+  const toggleInOrUp = (val) => {
+    setState(Object.assign({}, state, {
+      inOrUp: val
+    }))
   }
 
   return (
@@ -98,7 +131,13 @@ export default function FlightList(props) {
               </div>
                 {
                   state.selectedSeat === flight.code && 
-                  <SeatList seats={ state.seats } handleSignin={ handleSignin } />
+                  <SeatList 
+                    seats={ state.seats } 
+                    inOrUp={ state.inOrUp } 
+                    handleSignin={ handleSignin } 
+                    handleSignup={ handleSignup } 
+                    toggleInOrUp={ toggleInOrUp }
+                  />
                 }
             </div>
           )

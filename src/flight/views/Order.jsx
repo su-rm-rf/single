@@ -19,7 +19,7 @@ export default function Order(props) {
   const oid = searchParams.get('oid')
 
   const handleBack = () => {
-    navigate('/flight')
+    navigate('/admin/order/list')
   }
 
   useEffect(() => {
@@ -85,7 +85,7 @@ export default function Order(props) {
             <span>{ passengerInfo.email }</span>
           </p>
           <p className="submit">
-            <input type="button" value="返回首页" onClick={ handleBack } />
+            <input type="button" value="查看我的订单" onClick={ handleBack } />
           </p>
         </div>
       </div>

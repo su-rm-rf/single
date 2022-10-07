@@ -6,12 +6,14 @@ export default function Signin(props) {
     email: '',
     password: ''
   }
+
   const setEmail = (ev) => {
     userModel.email = ev.target.value
   }
   const setPwd = (ev) => {
     userModel.password = ev.target.value
   }
+  
   const SigninToggle = () => {
     props.SigninToggle()
   }
@@ -19,12 +21,16 @@ export default function Signin(props) {
     props.handleSignin(userModel)
   }
 
+  const toggleInOrUp = () => {
+    props.toggleInOrUp('up')
+  }
+
   return (
     <div>
       <div className="mask"></div>
       <div className="popup-wrap">
         <header>
-          <h3>登录</h3>
+          <h3>登 录</h3>
           <i onClick={ SigninToggle }>X</i>
         </header>
         <div className="popup-body">
@@ -38,6 +44,9 @@ export default function Signin(props) {
           </p>
           <p className="submit">
             <input type="button" value="登 录" onClick={ handleSignin } />
+          </p>
+          <p className="submit">
+            <input type="button" value="注 册" onClick={ toggleInOrUp } />
           </p>
         </div>
       </div>
