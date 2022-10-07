@@ -45,7 +45,8 @@ export default function FlightList(props) {
 
   const handleSignin = async (userModel) => {
     let canSubmit = true
-    Object.keys(userModel).map(item => !userModel[item] && (canSubmit = false))
+    // Object.keys(userModel).map(item => !userModel[item] && (canSubmit = false))
+    Object.values(userModel).map(item => !item && (canSubmit = false))
     if (!canSubmit) {
       alert('不能为空')
     } else {
