@@ -9,6 +9,7 @@ export default function Signup(props) {
     cardID: '',
     telephone: '',
     email: '',
+    role: 1,
   }
 
   const setName = (ev) => {
@@ -28,6 +29,9 @@ export default function Signup(props) {
   }
   const setEmail = (ev) => {
     userModel.email = ev.target.value
+  }
+  const setRole = (ev) => {
+    userModel.role = ev.target.value
   }
   
   const SigninToggle = () => {
@@ -73,6 +77,13 @@ export default function Signup(props) {
           <p>
             <label>邮 箱：</label>
             <input type="email" onChange={ setEmail } />
+          </p>
+          <p>
+            <label>角 色：</label>
+            <span>
+              <input type="radio" name="role" onChange={ setRole } value="1" defaultChecked />普通用户
+              <input type="radio" name="role" onChange={ setRole } value="2" />管理员
+            </span>
           </p>
           <p className="submit">
             <input type="button" value="注 册" onClick={ handleSignup } />

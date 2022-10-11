@@ -11,10 +11,10 @@
 
 .popup-wrap {
   position: fixed;
-  top: 20%;
+  top: 15%;
   left: calc(10% - 10px);
   width: 80%;
-  height: 60%;
+  height: 64%;
   background: #fff;
   border: 1px solid #999;
   z-index: 11;
@@ -37,7 +37,7 @@
       label {
         flex: 1;
       }
-      input, select {
+      input, select, span {
         flex: 2;
       }
       &.submit {

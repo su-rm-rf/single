@@ -13,6 +13,7 @@
     cardID: '',
     telephone: '',
     email: '',
+    role: 1,
   })
 
   const handleSignup = () => {
@@ -64,6 +65,13 @@
         <p>
           <label>邮 箱：</label>
           <input type="email" v-model="userModel.email" />
+        </p>
+        <p>
+          <label>角 色：</label>
+          <span class="radio">
+            <input type="radio" v-model="userModel.role" value="1" />普通用户
+            <input type="radio" v-model="userModel.role" value="2" />管理员
+          </span>
         </p>
         <p class="submit">
           <input type="button" value="注 册" @click="handleSignup" />

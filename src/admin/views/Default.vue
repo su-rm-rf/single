@@ -30,7 +30,7 @@
     <nav class="navHeader">
       <router-link to="/admin/order/list">订单列表</router-link>
       <!-- <a onclick="spagoto('/manage')">航司航班舱位管理</a> -->
-      <router-link to="/admin/airline/list" v-if="userModel.role === 1">航司列表</router-link>
+      <router-link to="/admin/airline/list" v-if="userModel.role === 2">航司列表</router-link>
       <a @click="handleSignout">退 出</a>
     </nav>
   </div>
