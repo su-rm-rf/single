@@ -122,7 +122,7 @@ export default function FlightList(props) {
                   <span>{ flight.leaveTime }</span>
                 </div>
                 <div className="col">
-                  <label>{ flight.depatureName }</label>
+                  <label>{ flight.destinationName }</label>
                   <span>{ flight.arriveTime }</span>
                 </div>
                 <div className="col">
