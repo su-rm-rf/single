@@ -20,5 +20,9 @@
       <label>邮 箱：</label>
       <span>{{ user.email }}</span>
     </li>
+    <li class="role">
+      <label>角 色：</label>
+      <span>{{ user.role === 1 ? '普通用户' : '管理员' }}</span>
+    </li>
   </ul>
 </template>

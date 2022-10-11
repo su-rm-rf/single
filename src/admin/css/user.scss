@@ -4,6 +4,11 @@
   border-bottom: 1px dashed #999;
   li {
     line-height: 30px;
+    &.role {
+      span {
+        color: #f00;
+      }
+    }
   }
 }
 
