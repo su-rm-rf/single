@@ -9,7 +9,7 @@
       <span>{{ user.name }}</span>
     </li>
     <li>
-      <label>身份证号：</label>
+      <label>身份证：</label>
       <span>{{ user.cardID }}</span>
     </li>
     <li>
