@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack')
 
 const { VueLoaderPlugin } = require('vue-loader')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -68,7 +69,11 @@ module.exports = env => {
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, '../public/index.html'),
         title: 'single-flight'
-      })
+      }),
+      new webpack.DefinePlugin({
+        __VUE_OPTIONS_API__: true,
+        __VUE_PROD_DEVTOOLS__: false,
+      }),
     ],
   }
 }
